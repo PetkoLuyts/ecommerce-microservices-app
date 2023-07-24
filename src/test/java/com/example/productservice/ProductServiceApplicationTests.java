@@ -12,6 +12,7 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.testcontainers.containers.MongoDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -54,6 +55,15 @@ class ProductServiceApplicationTests {
                 .andExpect(status().isCreated());
 
         Assertions.assertEquals(1, productRepository.findAll().size());
+    }
+
+    @Test
+    void shouldGetAllProducts() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/product"))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].name").value("Iphone 13"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].description").value("iphone 13"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].price").value(1200));
     }
 
     private ProductRequest getProductRequest() {
