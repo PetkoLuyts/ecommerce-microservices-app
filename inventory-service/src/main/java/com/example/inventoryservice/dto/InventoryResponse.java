@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class InventoryRequestDto {
+public class InventoryResponse {
     private String skuCode;
-    private Integer quantity;
+    private boolean isInStock;
 }
