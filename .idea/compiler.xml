@@ -12,11 +12,13 @@
         <module name="order-service" />
         <module name="inventory-service" />
         <module name="service-registry" />
+        <module name="notification-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="api-gateway" target="17" />
       <module name="inventory-service" target="17" />
+      <module name="notification-service" target="17" />
       <module name="order-service" target="17" />
       <module name="product-service" target="17" />
       <module name="service-registry" target="17" />
@@ -26,6 +28,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
       <module name="inventory-service" options="-parameters" />
+      <module name="notification-service" options="-parameters" />
       <module name="order-service" options="-parameters" />
       <module name="product-service" options="-parameters" />
       <module name="service-registry" options="-parameters" />
